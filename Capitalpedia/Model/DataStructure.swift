@@ -16,21 +16,18 @@ struct Country: Codable {
     let languages: [String: String]?
     let region: String
     let flag: String
-    /*
-    enum Region: String, Codable {
-        case africa = "Africa"
-        case americas = "Americas"
-        case antarctic = "Antarctic"
-        case asia = "Asia"
-        case europe = "Europe"
-        case oceania = "Oceania"
-    }
-     */
 }
 
 struct Name: Codable, Hashable {
     let common, official: String
 }
+
+extension Name: Comparable {
+    static func < (lhs: Name, rhs: Name) -> Bool {
+        return lhs.common < rhs.common
+    }
+}
+
 
 
 

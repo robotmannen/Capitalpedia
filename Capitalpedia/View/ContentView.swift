@@ -14,11 +14,10 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    //                                                     |
-                    // struct found in same file (ContentView) down below  |
-                    //                                                     V
+                    // struct found in same file (ContentView) down below
                     ListOfCountries()
                 }
+                .navigationTitle("All Countries")
                 .environmentObject(viewModel)
             }
         }
