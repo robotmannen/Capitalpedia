@@ -23,7 +23,6 @@ struct CountryCellView: View {
                     .font(.subheadline)
             }
             Spacer()
-            
             ZStack {
                 Text("🇺🇳")
                     .font(.largeTitle)

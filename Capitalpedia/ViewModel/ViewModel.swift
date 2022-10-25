@@ -10,15 +10,11 @@ import CoreLocation
 
 @MainActor
 class ViewModel: ObservableObject {
-    enum SortingType {
-        case alphabetically, reigionally, all
-    }
-    
+        
     private let dataService = DataService()
     
     @Published var countries: [Country] = []
-    
-    @Published var sortedCountries: [Country] = []
+    @Published var sortBy: SortingType = .all
     
     init() {
         fetchAllCountries()
@@ -40,8 +36,8 @@ class ViewModel: ObservableObject {
     }
     
     @MainActor
-    func sortCountries(sorter: SortingType) -> [Country] {
-        switch sorter {
+    func sortCountries() -> [Country] {
+        switch sortBy {
         case .alphabetically:
             return countries.sorted { $0.name < $1.name }
         case .reigionally:
@@ -50,4 +46,9 @@ class ViewModel: ObservableObject {
             return countries
         }
     }
+    
+    enum SortingType {
+        case alphabetically, reigionally, all
+    }
+
 }

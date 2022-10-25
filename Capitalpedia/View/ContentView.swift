@@ -14,12 +14,22 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 ScrollView {
-                    // struct found in same file (ContentView) down below
+                    // Custom view found in same file (ContentView) down below
                     ListOfCountries()
                 }
                 .navigationTitle("All Countries")
-                .environmentObject(viewModel)
+                .toolbar {
+                    sortMenu
+                }
             }
+        }
+        .environmentObject(viewModel)
+    }
+    var sortMenu: some View {
+        Menu("Filter") {
+            Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort alphabetically")} )
+            Button(action: { viewModel.sortBy = .reigionally }, label: { Text("Sort regionally")} )
+            Button(action: { viewModel.sortBy = .all}, label: { Text("Show all")} )
         }
     }
 }
@@ -29,7 +39,7 @@ struct ListOfCountries: View {
     
     var body: some View {
         LazyVGrid(columns: [GridItem()]) {
-            if let listOfCountries = viewModel.countries {
+            if let listOfCountries = viewModel.sortCountries() {
                 ForEach(listOfCountries, id: \.name) { countryData in
                     CountryCellView(countryData: countryData)
                 }
