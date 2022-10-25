@@ -38,14 +38,32 @@ class ViewModel: ObservableObject {
         switch sortBy {
         case .alphabetically:
             return countries.sorted { $0.name < $1.name }
-        case .reigionally:
-            return countries.sorted { $0.region < $1.region }
         case .all:
             return countries
+        case .africa:
+            return countries.filter { $0.region.rawValue == "Africa"}
+        case .americas:
+            return countries.filter { $0.region.rawValue == "Americas"}
+        case .antarctic:
+            return countries.filter { $0.region.rawValue == "Antarctic"}
+        case .asia:
+            return countries.filter { $0.region.rawValue == "Asia"}
+        case .europe:
+            return countries.filter { $0.region.rawValue == "Europe"}
+        case .oceania:
+            return countries.filter { $0.region.rawValue == "Oceania"}
         }
     }
     
     enum SortingType {
-        case alphabetically, reigionally, all
+        case alphabetically
+        case all
+        case africa
+        case americas
+        case antarctic
+        case asia
+        case europe
+        case oceania
+        
     }
 }

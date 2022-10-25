@@ -42,6 +42,6 @@ struct CountryCellView_Previews: PreviewProvider {
     let countryData: Country
     
     static var previews: some View {
-        CountryCellView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: "Europe", flag: "🇳🇴"))
+        CountryCellView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴"))
     }
 }
