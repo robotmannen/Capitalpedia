@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel = ViewModel()
-    
+    var selected = Image(systemName: "checkmark")
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,9 +29,11 @@ struct ContentView: View {
         }
         .environmentObject(viewModel)
     }
+    
+    
     var sortMenu: some View {
         Menu("Sort") {
-            Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort alphabetically")} )
+            Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort all alphabetically")} )
             Menu("Sort regionally") {
                 Button(action: { viewModel.sortBy = .africa }, label: { Text("Africa")} )
                 Button(action: { viewModel.sortBy = .americas }, label: { Text("Americas")} )
@@ -40,7 +42,6 @@ struct ContentView: View {
                 Button(action: { viewModel.sortBy = .europe }, label: { Text("Europe")} )
                 Button(action: { viewModel.sortBy = .oceania }, label: { Text("Oceania")} )
             }
-            Button(action: { viewModel.sortBy = .all}, label: { Text("Show all")} )
         }
     }
 }
@@ -60,7 +61,6 @@ struct ListOfCountries: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    
     static var previews: some View {
         ContentView()
     }

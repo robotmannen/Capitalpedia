@@ -14,7 +14,7 @@ class ViewModel: ObservableObject {
     private let dataService = DataService()
     
     @Published var countries: [Country] = []
-    @Published var sortBy: SortingType = .all
+    @Published var sortBy: SortingType = .alphabetically
     
     init() {
         fetchAllCountries()
@@ -38,32 +38,33 @@ class ViewModel: ObservableObject {
         switch sortBy {
         case .alphabetically:
             return countries.sorted { $0.name < $1.name }
-        case .all:
-            return countries
         case .africa:
-            return countries.filter { $0.region.rawValue == "Africa"}
+            return countries.filter { $0.region.rawValue == "Africa" }.sorted { $0.name < $1.name }
         case .americas:
-            return countries.filter { $0.region.rawValue == "Americas"}
+            return countries.filter { $0.region.rawValue == "Americas"}.sorted { $0.name < $1.name }
         case .antarctic:
-            return countries.filter { $0.region.rawValue == "Antarctic"}
+            return countries.filter { $0.region.rawValue == "Antarctic"}.sorted { $0.name < $1.name }
         case .asia:
-            return countries.filter { $0.region.rawValue == "Asia"}
+            return countries.filter { $0.region.rawValue == "Asia"}.sorted { $0.name < $1.name }
         case .europe:
-            return countries.filter { $0.region.rawValue == "Europe"}
+            return countries.filter { $0.region.rawValue == "Europe"}.sorted { $0.name < $1.name }
         case .oceania:
-            return countries.filter { $0.region.rawValue == "Oceania"}
+            return countries.filter { $0.region.rawValue == "Oceania"}.sorted { $0.name < $1.name }
         }
+    }
+    
+    @MainActor
+    func getSortingSelection() {
+        
     }
     
     enum SortingType {
         case alphabetically
-        case all
         case africa
         case americas
         case antarctic
         case asia
         case europe
         case oceania
-        
     }
 }
