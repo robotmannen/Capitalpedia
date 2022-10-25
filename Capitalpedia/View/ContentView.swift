@@ -12,21 +12,25 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ZStack {
                 ScrollView {
-                    // Custom view found in same file (ContentView) down below
-                    ListOfCountries()
+                    VStack(alignment: .center) {
+                        // Custom view found in same file (ContentView) down below
+                        ListOfCountries()
+                    }
                 }
                 .navigationTitle("All Countries")
                 .toolbar {
                     sortMenu
                 }
+                LoaderView()
+                    .hidden(!viewModel.countries.isEmpty)
             }
         }
         .environmentObject(viewModel)
     }
     var sortMenu: some View {
-        Menu("Filter") {
+        Menu("Sort") {
             Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort alphabetically")} )
             Button(action: { viewModel.sortBy = .reigionally }, label: { Text("Sort regionally")} )
             Button(action: { viewModel.sortBy = .all}, label: { Text("Show all")} )

@@ -21,8 +21,6 @@ class ViewModel: ObservableObject {
         
     }
     
-    
-    
     @MainActor
     func fetchAllCountries() {
         Task {
@@ -50,5 +48,4 @@ class ViewModel: ObservableObject {
     enum SortingType {
         case alphabetically, reigionally, all
     }
-
 }
