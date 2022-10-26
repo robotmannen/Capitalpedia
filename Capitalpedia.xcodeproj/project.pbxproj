@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C41EB2908692000362D35 /* CountryScreenView.swift */; };
 		5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */; };
 		5FF8EAEA290716FD004CD4DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE9290716FD004CD4DE /* ContentView.swift */; };
 		5FF8EAEC290716FF004CD4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8EAEB290716FF004CD4DE /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F0C41EB2908692000362D35 /* CountryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryScreenView.swift; sourceTree = "<group>"; };
 		5FF8EAE4290716FD004CD4DE /* Capitalpedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capitalpedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalpediaApp.swift; sourceTree = "<group>"; };
 		5FF8EAE9290716FD004CD4DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				5FF8EAE9290716FD004CD4DE /* ContentView.swift */,
 				5FF8EAFF2907E493004CD4DE /* CountryCellView.swift */,
+				5F0C41EB2908692000362D35 /* CountryScreenView.swift */,
 				5FF8EB0129082BA0004CD4DE /* LoaderView.swift */,
 			);
 			path = View;
@@ -186,6 +189,7 @@
 			files = (
 				5FF8EAEA290716FD004CD4DE /* ContentView.swift in Sources */,
 				5FF8EB002907E493004CD4DE /* CountryCellView.swift in Sources */,
+				5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */,
 				5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */,
 				5FF8EB0229082BA0004CD4DE /* LoaderView.swift in Sources */,
 				5FF8EAFC290722EF004CD4DE /* API.swift in Sources */,

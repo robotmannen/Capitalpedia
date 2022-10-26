@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @StateObject var viewModel = ViewModel()
-    var selected = Image(systemName: "checkmark")
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -47,13 +48,16 @@ struct ContentView: View {
 }
 
 struct ListOfCountries: View {
+    
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         LazyVGrid(columns: [GridItem()]) {
             if let listOfCountries = viewModel.sortCountries() {
                 ForEach(listOfCountries, id: \.name) { countryData in
-                    CountryCellView(countryData: countryData)
+                    NavigationLink(destination: CountryScreenView(countryData: countryData)) {
+                        CountryCellView(countryData: countryData)
+                    }
                 }
             }
         }

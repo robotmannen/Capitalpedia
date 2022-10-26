@@ -10,6 +10,7 @@ import SwiftUI
 struct CountryCellView: View {
     
     @EnvironmentObject var viewModel: ViewModel
+    
     let countryData: Country
     
     var body: some View {
@@ -19,8 +20,12 @@ struct CountryCellView: View {
             VStack(alignment: .leading) {
                 Text(countryData.name.common)
                     .font(.headline)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.leading)
                 Text(countryData.name.official)
                     .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
             }
             Spacer()
             ZStack {
@@ -40,6 +45,7 @@ struct CountryCellView_Previews: PreviewProvider {
     
     @EnvironmentObject var viewModel: ViewModel
     let countryData: Country
+    
     
     static var previews: some View {
         CountryCellView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴"))
