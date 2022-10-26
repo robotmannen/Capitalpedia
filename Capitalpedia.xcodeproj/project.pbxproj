@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C41EB2908692000362D35 /* CountryScreenView.swift */; };
+		5F701A6129094A09003B1E2F /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F701A6029094A09003B1E2F /* FirebaseService.swift */; };
+		5F701A6329094A94003B1E2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5F701A6229094A94003B1E2F /* GoogleService-Info.plist */; };
 		5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */; };
 		5FF8EAEA290716FD004CD4DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE9290716FD004CD4DE /* ContentView.swift */; };
 		5FF8EAEC290716FF004CD4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8EAEB290716FF004CD4DE /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 
 /* Begin PBXFileReference section */
 		5F0C41EB2908692000362D35 /* CountryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryScreenView.swift; sourceTree = "<group>"; };
+		5F701A6029094A09003B1E2F /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		5F701A6229094A94003B1E2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FF8EAE4290716FD004CD4DE /* Capitalpedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capitalpedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalpediaApp.swift; sourceTree = "<group>"; };
 		5FF8EAE9290716FD004CD4DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 				5FF8EAF629071729004CD4DE /* View */,
 				5FF8EAF529071723004CD4DE /* Model */,
 				5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */,
+				5F701A6229094A94003B1E2F /* GoogleService-Info.plist */,
 				5FF8EAEB290716FF004CD4DE /* Assets.xcassets */,
 				5FF8EAED290716FF004CD4DE /* Preview Content */,
 			);
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				5FF8EAFB290722EF004CD4DE /* API.swift */,
+				5F701A6029094A09003B1E2F /* FirebaseService.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -133,6 +139,8 @@
 			dependencies = (
 			);
 			name = Capitalpedia;
+			packageProductDependencies = (
+			);
 			productName = Capitalpedia;
 			productReference = 5FF8EAE4290716FD004CD4DE /* Capitalpedia.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +169,9 @@
 				Base,
 			);
 			mainGroup = 5FF8EADB290716FD004CD4DE;
+			packageReferences = (
+				5FAD084429094E790085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 5FF8EAE5290716FD004CD4DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -177,6 +188,7 @@
 			files = (
 				5FF8EAEF290716FF004CD4DE /* Preview Assets.xcassets in Resources */,
 				5FF8EAEC290716FF004CD4DE /* Assets.xcassets in Resources */,
+				5F701A6329094A94003B1E2F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +203,7 @@
 				5FF8EB002907E493004CD4DE /* CountryCellView.swift in Sources */,
 				5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */,
 				5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */,
+				5F701A6129094A09003B1E2F /* FirebaseService.swift in Sources */,
 				5FF8EB0229082BA0004CD4DE /* LoaderView.swift in Sources */,
 				5FF8EAFC290722EF004CD4DE /* API.swift in Sources */,
 				5FF8EAFE29072678004CD4DE /* ViewModel.swift in Sources */,
@@ -393,6 +406,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FAD084429094E790085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 5FF8EADC290716FD004CD4DE /* Project object */;
 }

@@ -7,8 +7,12 @@
 
 import SwiftUI
 
+
+
 @main
 struct CapitalpediaApp: App {
+    
+
     var body: some Scene {
         WindowGroup {
             ContentView()

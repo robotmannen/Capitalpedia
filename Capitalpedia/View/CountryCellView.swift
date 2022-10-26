@@ -18,7 +18,7 @@ struct CountryCellView: View {
             Text(countryData.flag)
                 .font(.system(size: 50))
             VStack(alignment: .leading) {
-                Text(countryData.name.common)
+                Text("\(countryData.name.common) - \(countryData.capital?.first ?? "No capital")")
                     .font(.headline)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)
@@ -26,15 +26,26 @@ struct CountryCellView: View {
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.leading)
+                Text("pop: \(countryData.population)")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
             }
             Spacer()
-            ZStack {
-                Text("🇺🇳")
-                    .font(.largeTitle)
-                Text(countryData.unMember ? "" : "🚫")
-            }
+            coatOfArms
             //  Make glow red/green depending on independence of country
             Divider()
+        }
+    }
+    var coatOfArms: some View {
+        AsyncImage(url: URL(string: countryData.coatOfArms.png ?? "")) { resize in
+            resize
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50, alignment: .center)
+        } placeholder: {
+            Image(systemName: "flag.slash")
+                .font(.largeTitle)
+                .frame(width: 50, height: 50, alignment: .center)
         }
     }
 }
@@ -44,10 +55,10 @@ struct CountryCellView: View {
 struct CountryCellView_Previews: PreviewProvider {
     
     @EnvironmentObject var viewModel: ViewModel
+    
     let countryData: Country
     
-    
     static var previews: some View {
-        CountryCellView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴"))
+        CountryCellView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴", population: 5500000, coatOfArms: CoatOfArms(png: "")))
     }
 }

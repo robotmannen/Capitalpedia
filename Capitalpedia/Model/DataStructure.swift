@@ -16,6 +16,8 @@ struct Country: Codable {
     let languages: [String: String]?
     let region: Region
     let flag: String
+    let population: Int
+    let coatOfArms: CoatOfArms
 }
 
 struct Name: Codable, Hashable {
@@ -29,6 +31,10 @@ enum Region: String, Codable {
     case asia = "Asia"
     case europe = "Europe"
     case oceania = "Oceania"
+}
+
+struct CoatOfArms: Codable {
+    let png: String?
 }
 /*
 extension Region: Comparable {

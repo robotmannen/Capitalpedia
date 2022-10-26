@@ -13,22 +13,24 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                ScrollView {
-                    VStack(alignment: .center) {
-                        // Custom view found in same file (ContentView) down below
-                        ListOfCountries()
+            VStack {
+                ZStack {
+                    ScrollView {
+                        VStack(alignment: .center) {
+                            // Custom view found in same file (ContentView) down below
+                            ListOfCountries()
+                        }
                     }
+                    .navigationTitle("All Countries")
+                    .toolbar {
+                        sortMenu
+                    }
+                    LoaderView()
+                        .hidden(!viewModel.countries.isEmpty)
                 }
-                .navigationTitle("All Countries")
-                .toolbar {
-                    sortMenu
-                }
-                LoaderView()
-                    .hidden(!viewModel.countries.isEmpty)
             }
+            .environmentObject(viewModel)
         }
-        .environmentObject(viewModel)
     }
     
     
@@ -42,7 +44,9 @@ struct ContentView: View {
                 Button(action: { viewModel.sortBy = .asia }, label: { Text("Asia")} )
                 Button(action: { viewModel.sortBy = .europe }, label: { Text("Europe")} )
                 Button(action: { viewModel.sortBy = .oceania }, label: { Text("Oceania")} )
+                
             }
+            Button(action: { viewModel.sortBy = .populationSize }, label: { Text("Population")} )
         }
     }
 }

@@ -30,6 +30,6 @@ struct CountryScreenView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryScreenView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴"))
+        CountryScreenView(countryData: Country(name: Name(common: "Norway", official: "Kingdom of Norway"), independent: true, unMember: true, capital: ["Oslo"], languages: ["Norwegian": ""], region: Region.europe, flag: "🇳🇴", population: 5500000, coatOfArms: CoatOfArms(png: "")))
     }
 }

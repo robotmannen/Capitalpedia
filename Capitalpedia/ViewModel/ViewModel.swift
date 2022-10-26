@@ -18,7 +18,6 @@ class ViewModel: ObservableObject {
     
     init() {
         fetchAllCountries()
-        
     }
     
     @MainActor
@@ -50,16 +49,14 @@ class ViewModel: ObservableObject {
             return countries.filter { $0.region.rawValue == "Europe"}.sorted { $0.name < $1.name }
         case .oceania:
             return countries.filter { $0.region.rawValue == "Oceania"}.sorted { $0.name < $1.name }
+        case .populationSize:
+            return countries.sorted { $0.population > $1.population }
         }
-    }
-    
-    @MainActor
-    func getSortingSelection() {
-        
     }
     
     enum SortingType {
         case alphabetically
+        case populationSize
         case africa
         case americas
         case antarctic
