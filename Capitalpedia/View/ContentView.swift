@@ -21,9 +21,13 @@ struct ContentView: View {
                             ListOfCountries()
                         }
                     }
-                    .navigationTitle("All Countries")
+                    .navigationTitle("Capitalpedia")
                     .toolbar {
-                        sortMenu
+                        ToolbarItemGroup(placement: .bottomBar) {
+                            Button(action: {}, label: { Text("Favourites") })
+                            Spacer()
+                            sortMenu
+                        }
                     }
                     LoaderView()
                         .hidden(!viewModel.countries.isEmpty)
@@ -36,17 +40,17 @@ struct ContentView: View {
     
     var sortMenu: some View {
         Menu("Sort") {
-            Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort all alphabetically")} )
+            Button(action: { viewModel.sortBy = .alphabetically }, label: { Text("Sort all alphabetically") })
             Menu("Sort regionally") {
-                Button(action: { viewModel.sortBy = .africa }, label: { Text("Africa")} )
-                Button(action: { viewModel.sortBy = .americas }, label: { Text("Americas")} )
-                Button(action: { viewModel.sortBy = .antarctic }, label: { Text("Antarctic")} )
-                Button(action: { viewModel.sortBy = .asia }, label: { Text("Asia")} )
-                Button(action: { viewModel.sortBy = .europe }, label: { Text("Europe")} )
-                Button(action: { viewModel.sortBy = .oceania }, label: { Text("Oceania")} )
+                Button(action: { viewModel.sortBy = .africa }, label: { Text("Africa") })
+                Button(action: { viewModel.sortBy = .americas }, label: { Text("Americas") })
+                Button(action: { viewModel.sortBy = .antarctic }, label: { Text("Antarctic") })
+                Button(action: { viewModel.sortBy = .asia }, label: { Text("Asia") })
+                Button(action: { viewModel.sortBy = .europe }, label: { Text("Europe") })
+                Button(action: { viewModel.sortBy = .oceania }, label: { Text("Oceania") })
                 
             }
-            Button(action: { viewModel.sortBy = .populationSize }, label: { Text("Population")} )
+            Button(action: { viewModel.sortBy = .populationSize }, label: { Text("Population") })
         }
     }
 }
