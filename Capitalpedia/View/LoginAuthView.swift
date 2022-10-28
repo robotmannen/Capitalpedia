@@ -14,6 +14,7 @@ struct LoginAuthView: View {
     var body: some View {
         switch viewModel.state {
         case .signedIn: ContentView()
+                .environmentObject(viewModel)
         case .signedOut: LoginView()
         }
     }

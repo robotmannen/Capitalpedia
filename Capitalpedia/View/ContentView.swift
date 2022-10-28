@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var viewModel = ViewModel()
+    @EnvironmentObject var authViewModel: AuthenticationViewModel
     
     var body: some View {
         NavigationView {
@@ -24,8 +25,8 @@ struct ContentView: View {
                     .navigationTitle("Capitalpedia")
                     .toolbar {
                         ToolbarItemGroup(placement: .bottomBar) {
-                            Button(action: {}, label: { Text("Favourites") })
-                            Spacer()
+                            NavigationLink(destination: FavouritesView(), label: { Text("Profile") })
+                                .environmentObject(authViewModel)
                             sortMenu
                         }
                     }
