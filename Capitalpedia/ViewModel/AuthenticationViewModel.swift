@@ -84,8 +84,7 @@ class AuthenticationViewModel: ObservableObject {
     
     func registerEmailUser(email: String, password: String) {
         Auth.auth().createUser(withEmail: email, password: password) { authdResult, error in
-            print(authdResult?.user.displayName)
-            
+            print(authdResult?.user.displayName as Any)
             
         }
     }

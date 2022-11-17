@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-    
+    @State private var presentAlert = false
     @State private var email = ""
     @State private var password = ""
     
@@ -23,14 +23,32 @@ struct LoginView: View {
             Text("login")
                 .font(.subheadline)
             
-            GoogleSignInButton()
-                .onTapGesture {
-                    viewModel.signIn()
-                }
-            TextField("email", text: $email)
-            TextField("password", text: $password)
-            Button(action: { viewModel.registerEmailUser(email: email, password: password) }, label: { Text("Register") })
+            VStack {
+                GoogleSignInButton()
+                    .padding()
+                    .onTapGesture {
+                        viewModel.signIn()
+                    }
+                emailLoginBtn
+                Spacer()
+            }
+            .frame(width: 300, height: 300, alignment: .center)
+            
         }
+    }
+    var emailLoginBtn: some View {
+        Button("Login with email") {
+            presentAlert = true
+        }
+        .alert("Login", isPresented: $presentAlert, actions: {
+            TextField("Email", text: $email)
+            SecureField("Password", text: $password)
+            
+            Button("Login", action: {})
+            Button("Cancel", role: .cancel, action: {})
+        }, message: {
+            Text("Please enter your username and password.")
+        })
     }
 }
 

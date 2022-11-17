@@ -19,7 +19,6 @@ struct DataService {
     private func performRequest(_ url: String) async throws -> [Country] {
         if let url = URL(string: url) {
             let (data, _) = try await URLSession.shared.data(from: url)
-            print("hei")
             let countriesData: [Country]? = try JSONDecoder().decode([Country].self, from: data)
             if let json = countriesData {
                 return json
