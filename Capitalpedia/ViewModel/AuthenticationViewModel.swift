@@ -11,8 +11,6 @@ import GoogleSignIn
 
 class AuthenticationViewModel: ObservableObject {
     
-    
-    // 1
     enum SignInState {
         case signedIn
         case signedOut
@@ -20,12 +18,17 @@ class AuthenticationViewModel: ObservableObject {
     
     // 2
     @Published var state: SignInState = .signedOut
+    @Published var loggedInUser: GIDProfileData?
     
     func signIn() {
+        
+        
         // 1
         if GIDSignIn.sharedInstance.hasPreviousSignIn() {
             GIDSignIn.sharedInstance.restorePreviousSignIn { [unowned self] user, error in
                 authenticateUser(for: user, with: error)
+                loggedInUser = user?.profile
+                
             }
         } else {
             // 2
@@ -41,8 +44,10 @@ class AuthenticationViewModel: ObservableObject {
             // 5
             GIDSignIn.sharedInstance.signIn(with: configuration, presenting: rootViewController) { [unowned self] user, error in
                 authenticateUser(for: user, with: error)
+                loggedInUser = user?.profile
             }
         }
+        
     }
     
     func signOut() {
