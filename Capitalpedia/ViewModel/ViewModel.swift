@@ -10,11 +10,11 @@ import CoreLocation
 
 @MainActor
 class ViewModel: ObservableObject {
-        
+    
     private let dataService = DataService()
     
     @Published var countries: [Country] = []
-    @Published var sortBy: SortingType = .alphabetically
+    @Published var sortingSelection: SortingType = .alphabetically
     
     init() {
         fetchAllCountries()
@@ -34,34 +34,26 @@ class ViewModel: ObservableObject {
     
     @MainActor
     func sortCountries() -> [Country] {
-        switch sortBy {
-        case .alphabetically:
+        if sortingSelection == .alphabetically {
             return countries.sorted { $0.name < $1.name }
-        case .africa:
-            return countries.filter { $0.region.rawValue == "Africa" }.sorted { $0.name < $1.name }
-        case .americas:
-            return countries.filter { $0.region.rawValue == "Americas"}.sorted { $0.name < $1.name }
-        case .antarctic:
-            return countries.filter { $0.region.rawValue == "Antarctic"}.sorted { $0.name < $1.name }
-        case .asia:
-            return countries.filter { $0.region.rawValue == "Asia"}.sorted { $0.name < $1.name }
-        case .europe:
-            return countries.filter { $0.region.rawValue == "Europe"}.sorted { $0.name < $1.name }
-        case .oceania:
-            return countries.filter { $0.region.rawValue == "Oceania"}.sorted { $0.name < $1.name }
-        case .populationSize:
+            
+        } else if sortingSelection == .populationSize {
             return countries.sorted { $0.population > $1.population }
+            
+        } else {
+            return countries.filter { $0.region.rawValue == sortingSelection.rawValue }.sorted { $0.name < $1.name }
+            
         }
     }
-    
-    enum SortingType {
-        case alphabetically
-        case populationSize
-        case africa
-        case americas
-        case antarctic
-        case asia
-        case europe
-        case oceania
-    }
+}
+
+enum SortingType: String, CaseIterable {
+    case alphabetically = "Alphabetically"
+    case populationSize = "Population size"
+    case africa = "Africa"
+    case americas = "Americas"
+    case antarctic = "Antarctica"
+    case asia = "Asia"
+    case europe = "Europe"
+    case oceania = "Oceania"
 }

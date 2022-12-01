@@ -18,7 +18,7 @@ struct LoginView: View {
     var body: some View {
         VStack(alignment: .center) {
             
-            Text("Capitalpedia")
+            Text(APP_TITLE)
                 .font(.largeTitle)
             Text("login")
                 .font(.subheadline)

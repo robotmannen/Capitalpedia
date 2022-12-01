@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0C41EB2908692000362D35 /* CountryScreenView.swift */; };
+		5F151CDE29377846003187C7 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5F151CDD29377846003187C7 /* FirebaseCrashlytics */; };
+		5F151CE129377CF9003187C7 /* Mixpanel in Frameworks */ = {isa = PBXBuildFile; productRef = 5F151CE029377CF9003187C7 /* Mixpanel */; };
 		5F63B9B22909BF8D00C0035C /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63B9B12909BF8D00C0035C /* GoogleSignInButton.swift */; };
 		5F63B9B42909BFD400C0035C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63B9B32909BFD400C0035C /* LoginView.swift */; };
 		5F63B9B62909C0B400C0035C /* LoginAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F63B9B52909C0B400C0035C /* LoginAuthView.swift */; };
@@ -23,6 +25,7 @@
 		5FAD08522909BBC30085A16F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5FAD08512909BBC30085A16F /* GoogleSignIn */; };
 		5FAD08542909BBC30085A16F /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FAD08532909BBC30085A16F /* GoogleSignInSwift */; };
 		5FAD08572909BD120085A16F /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FAD08562909BD120085A16F /* AuthenticationViewModel.swift */; };
+		5FD9E9D12938B86C00EC7013 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD9E9D02938B86C00EC7013 /* Constants.swift */; };
 		5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */; };
 		5FF8EAEA290716FD004CD4DE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF8EAE9290716FD004CD4DE /* ContentView.swift */; };
 		5FF8EAEC290716FF004CD4DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8EAEB290716FF004CD4DE /* Assets.xcassets */; };
@@ -44,6 +47,7 @@
 		5F701A6229094A94003B1E2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FAD08552909BCE70085A16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5FAD08562909BD120085A16F /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		5FD9E9D02938B86C00EC7013 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5FF8EAE4290716FD004CD4DE /* Capitalpedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capitalpedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalpediaApp.swift; sourceTree = "<group>"; };
 		5FF8EAE9290716FD004CD4DE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 				5FAD084B2909B5370085A16F /* FirebaseAuth in Frameworks */,
 				5FAD084D2909B5370085A16F /* FirebaseDatabase in Frameworks */,
 				5F63B9B9290AA58E00C0035C /* FirebaseFirestore in Frameworks */,
+				5F151CE129377CF9003187C7 /* Mixpanel in Frameworks */,
+				5F151CDE29377846003187C7 /* FirebaseCrashlytics in Frameworks */,
 				5FAD08472909B5370085A16F /* FirebaseAnalytics in Frameworks */,
 				5FAD08522909BBC30085A16F /* GoogleSignIn in Frameworks */,
 			);
@@ -117,6 +123,7 @@
 				5FF8EAF629071729004CD4DE /* View */,
 				5FF8EAF529071723004CD4DE /* Model */,
 				5FF8EAE7290716FD004CD4DE /* CapitalpediaApp.swift */,
+				5FD9E9D02938B86C00EC7013 /* Constants.swift */,
 				5F701A6229094A94003B1E2F /* GoogleService-Info.plist */,
 				5FF8EAEB290716FF004CD4DE /* Assets.xcassets */,
 				5FF8EAED290716FF004CD4DE /* Preview Content */,
@@ -197,6 +204,8 @@
 				5FAD08512909BBC30085A16F /* GoogleSignIn */,
 				5FAD08532909BBC30085A16F /* GoogleSignInSwift */,
 				5F63B9B8290AA58E00C0035C /* FirebaseFirestore */,
+				5F151CDD29377846003187C7 /* FirebaseCrashlytics */,
+				5F151CE029377CF9003187C7 /* Mixpanel */,
 			);
 			productName = Capitalpedia;
 			productReference = 5FF8EAE4290716FD004CD4DE /* Capitalpedia.app */;
@@ -229,6 +238,7 @@
 			packageReferences = (
 				5FAD08452909B5370085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5FAD08502909BBC30085A16F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				5F151CDF29377CF9003187C7 /* XCRemoteSwiftPackageReference "mixpanel-swift" */,
 			);
 			productRefGroup = 5FF8EAE5290716FD004CD4DE /* Products */;
 			projectDirPath = "";
@@ -262,6 +272,7 @@
 				5FF8EB002907E493004CD4DE /* CountryCellView.swift in Sources */,
 				5F0C41EC2908692000362D35 /* CountryScreenView.swift in Sources */,
 				5FF8EAE8290716FD004CD4DE /* CapitalpediaApp.swift in Sources */,
+				5FD9E9D12938B86C00EC7013 /* Constants.swift in Sources */,
 				5F701A6129094A09003B1E2F /* FirebaseService.swift in Sources */,
 				5F63B9B62909C0B400C0035C /* LoginAuthView.swift in Sources */,
 				5F63B9B42909BFD400C0035C /* LoginView.swift in Sources */,
@@ -473,6 +484,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5F151CDF29377CF9003187C7 /* XCRemoteSwiftPackageReference "mixpanel-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mixpanel/mixpanel-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5FAD08452909B5370085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -492,6 +511,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5F151CDD29377846003187C7 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FAD08452909B5370085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		5F151CE029377CF9003187C7 /* Mixpanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5F151CDF29377CF9003187C7 /* XCRemoteSwiftPackageReference "mixpanel-swift" */;
+			productName = Mixpanel;
+		};
 		5F63B9B8290AA58E00C0035C /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5FAD08452909B5370085A16F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

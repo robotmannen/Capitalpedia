@@ -9,7 +9,9 @@ import SwiftUI
 
 
 import FirebaseCore
+import FirebaseCrashlytics
 import Firebase
+import Mixpanel
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     
@@ -28,7 +30,7 @@ struct CapitalpediaApp: App {
     
     init() {
         setupAuthentication()
-      }
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -39,7 +41,8 @@ struct CapitalpediaApp: App {
 }
 
 extension CapitalpediaApp {
-  private func setupAuthentication() {
-    FirebaseApp.configure()
-  }
+    private func setupAuthentication() {
+        FirebaseApp.configure()
+        Mixpanel.initialize(token: "4cb26e7c6806e90ab6200cc65c217f43", trackAutomaticEvents: true)
+    }
 }

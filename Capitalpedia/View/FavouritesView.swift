@@ -25,7 +25,7 @@ struct FavouritesView: View {
                         .frame(width: 50, height: 50, alignment: .center)
                         .cornerRadius(50)
                 } placeholder: {
-                    Image(systemName: "flag.slash")
+                    Image(systemName: "􀓤")
                         .font(.largeTitle)
                         .frame(width: 50, height: 50, alignment: .center)
                 }

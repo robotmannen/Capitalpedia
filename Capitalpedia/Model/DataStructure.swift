@@ -36,13 +36,6 @@ enum Region: String, Codable {
 struct CoatOfArms: Codable {
     let png: String?
 }
-/*
-extension Region: Comparable {
-    static func < (lhs: Region, rhs: Region) -> Bool {
-        return lhs.rawValue
-    }
-}
- */
 
 extension Name: Comparable {
     static func < (lhs: Name, rhs: Name) -> Bool {
