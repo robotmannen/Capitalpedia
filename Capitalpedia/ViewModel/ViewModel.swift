@@ -33,16 +33,14 @@ class ViewModel: ObservableObject {
     }
     
     @MainActor
-    func sortCountries() -> [Country] {
-        if sortingSelection == .alphabetically {
+    func countriesSorted() -> [Country] {
+        switch sortingSelection {
+        case .alphabetically:
             return countries.sorted { $0.name < $1.name }
-            
-        } else if sortingSelection == .populationSize {
+        case .populationSize:
             return countries.sorted { $0.population > $1.population }
-            
-        } else {
+        default:
             return countries.filter { $0.region.rawValue == sortingSelection.rawValue }.sorted { $0.name < $1.name }
-            
         }
     }
 }

@@ -38,7 +38,6 @@ struct FavouritesView: View {
                 Text("Logout")
                     .foregroundColor(.red)
             }
-            
         }
     }
     

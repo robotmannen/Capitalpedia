@@ -14,6 +14,8 @@ struct ContentView: View {
     @StateObject var viewModel = ViewModel()
     @EnvironmentObject var authViewModel: AuthenticationViewModel
     
+    @State var sortingSelection: SortingType = .alphabetically
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -26,9 +28,12 @@ struct ContentView: View {
                     }
                     .navigationTitle(APP_TITLE)
                     .toolbar {
-                        ToolbarItemGroup(placement: .bottomBar) {
-                            NavigationLink(destination: FavouritesView(), label: { Text("Profile") })
-                                .environmentObject(authViewModel)
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            NavigationLink(destination: FavouritesView()) {
+                                Text("Profile")
+                            }
+                        }
+                        ToolbarItem(placement: .bottomBar) {
                             sortMenu
                         }
                     }
@@ -44,7 +49,7 @@ struct ContentView: View {
     var sortMenu: some View {
         Menu("Sort") {
             ForEach(SortingType.allCases.reversed(), id: \.self) { sortingSelection in
-                Button(action: { viewModel.sortingSelection = sortingSelection }, label: { Text(sortingSelection.rawValue) })
+                Button(sortingSelection.rawValue, action: { viewModel.sortingSelection = sortingSelection })
             }
         }
     }
@@ -56,11 +61,9 @@ struct ListOfCountries: View {
     
     var body: some View {
         LazyVGrid(columns: [GridItem()]) {
-            if let listOfCountries = viewModel.sortCountries() {
-                ForEach(listOfCountries, id: \.name) { countryData in
-                    NavigationLink(destination: CountryScreenView(countryData: countryData)) {
-                        CountryCellView(countryData: countryData)
-                    }
+            ForEach(viewModel.countriesSorted(), id: \.name) { countryData in
+                NavigationLink(destination: CountryScreenView(countryData: countryData)) {
+                    CountryCellView(countryData: countryData)
                 }
             }
         }
