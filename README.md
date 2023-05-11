@@ -2,6 +2,10 @@
 
 An iOS app to view basic information of countries and regions of the world. 
 
+## Context
+
+I started this project after submitting my school assignment [OdaClone](https://github.com/robotmannen/OdaClone) to apply the new skills i learned from said project.
+
 ## Overview
 
 Capitalpedia is a mobile app that fetches data from an API containing information about countries and regions of the world. With Capitalpedia, you can easily browse and search for information about countries, including their capitals, population, and more. Additionally, the app includes filtering options for sorting countries alphabetically, by population size, and by continent.
