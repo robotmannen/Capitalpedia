@@ -20,21 +20,3 @@ Capitalpedia is a mobile app that fetches data from an API containing informatio
 ## API
 
 Capitalpedia uses the [REST Countries API](https://restcountries.com/) to fetch data about countries and regions of the world. 
-
-## Technologies Used
-
-- Swift
-- SwiftUI
-- URLSession
-- Codable
-
-## Installation
-
-To use Capitalpedia, you can clone this repository by running the following command in your terminal:
-
-git clone https://github.com/robotmannen/OdaClone.git
-
-## Contributions
-
-Contributions are welcome! 
-
